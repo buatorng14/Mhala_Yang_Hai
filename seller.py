@@ -4,11 +4,11 @@ import ast
 
 # Connect to MySQL database
 mydb = mysql.connector.connect(
-  host="localhost",
+  host="sql12.freesqldatabase.com",
   port="3306",
-  user="root",
-  password="12345678",
-  database="dbproject"
+  user="sql12662685",
+  password="c757GL28zN",
+  database="sql12662685"
 )
 cursor = mydb.cursor()
 cursor.execute("SELECT OrderCode, Product, TotalPrice, CustomerNote FROM customer_order")
@@ -34,6 +34,7 @@ for product in data:
             mydb.commit()
             
             st.toast(f'Order {OrderCode} deleted successfully! The order is ready for pickup.', icon='❎')
+cursor.close()
 
 # Close the cursor and database connection outside the loop
 cursor.close()
