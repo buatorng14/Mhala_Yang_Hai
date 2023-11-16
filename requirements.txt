@@ -1,5 +1,4 @@
-/home/appuser/venv/bin/python -m pip install --upgrade pip
-streamlit
-mysql
+streamlit=1.28.0
+mysql.connector
 streamlit-lottie
 
