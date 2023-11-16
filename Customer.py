@@ -16,7 +16,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 # ปฏิบัติการ SQL 
-mycursor.execute("SELECT IDproduct, NameProduct, PricePerUnit, Image FROM productinfo")
+mycursor.execute("SELECT IDproduct, NameProduct, PricePerUnit, Image FROM productInfo")
 data = mycursor.fetchall()
 
 
