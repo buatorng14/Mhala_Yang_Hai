@@ -439,7 +439,6 @@ if st.session_state.stage == 6:
                 else:st.markdown(f"""<div style='text-align: center; color: red;'>ไม่มีรายการอาหารขอคุณกรุณาสั่งอาหาร</div>""", unsafe_allow_html=True)
 
     # ปิดการเชื่อมต่อ
-    conn.close()
     mycursor.close()
     mydb.close()
     
