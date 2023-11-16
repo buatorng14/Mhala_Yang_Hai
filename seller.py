@@ -1,3 +1,4 @@
+pip install -r /mount/src/mhala_yang_hai/requirements.txt
 import streamlit as st
 import mysql.connector
 import ast
