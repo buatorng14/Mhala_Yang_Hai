@@ -1,4 +1,3 @@
 streamlit
 mysql.connector
 streamlit-lottie
-sqlite3
