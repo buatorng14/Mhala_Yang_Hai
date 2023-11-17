@@ -1,4 +1,5 @@
 import streamlit as st
+import sqlite3
 import json
 from streamlit_lottie import st_lottie
 import mysql.connector
@@ -9,17 +10,19 @@ import mysql.connector
 mydb = mysql.connector.connect(
   host="sql12.freesqldatabase.com",
   port="3306",
-  user="sql12662685",
-  password="c757GL28zN",
-  database="sql12662685"
+  user="sql12662953",
+  password="xxhfidUS7g",
+  database="sql12662953"
 )
 
+# ติดต่อฐานข้อมูล SQL
+conn = sqlite3.connect('dbproject.db')
+cursor = conn.cursor()  # สร้าง cursor
 mycursor = mydb.cursor()
+
 # ปฏิบัติการ SQL 
-mycursor.execute("SELECT IDproduct, NameProduct, PricePerUnit, Image FROM productInfo")
-data = mycursor.fetchall()
-
-
+cursor.execute("SELECT IDproduct, NameProduct, PricePerUnit, Image FROM ProduceInfo")
+data = cursor.fetchall()
 
 
 # Function for creating GIF
