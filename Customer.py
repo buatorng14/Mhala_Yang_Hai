@@ -12,8 +12,7 @@ mydb =  mysql.connector.connect(
         port="3306",
         user="trong",
         password="c757GL28zN",
-        database="trong",
-        ssl_disabled=True
+        database="trong"
 )
 # ติดต่อฐานข้อมูล SQL
 conn = sqlite3.connect('dbproject.db')
