@@ -6,8 +6,7 @@ mydb = mysql.connector.connect(
         port="3306",
         user="trong",
         password="c757GL28zN",
-        database="trong",
-        ssl_disabled=True
+        database="trong"
 )
 cursor = mydb.cursor()
 cursor.execute("SELECT OrderCode, Product, TotalPrice, CustomerNote FROM customer_order")
@@ -17,7 +16,6 @@ st.title('รายการคำสั่งซื้อทั้งหมด'
 
 for product in data:
     OrderCode, Product, TotalPrice, CustomerNote = product
-    product_dict = ast.literal_eval(Product)
     with st.form(key=f'form_{OrderCode}'):
         st.write(OrderCode)
         st.write("**สินค้า:**")
