@@ -330,7 +330,6 @@ if st.session_state.stage == 4:
         col1.button('กลับหน้าหลัก', key="back1",on_click=lambda: (set_state(0), st.session_state.update(cart={})), use_container_width=True)
         col2.button('สถานะสินค้า', on_click=set_state, args=[5], use_container_width=True)
         st.session_state.order_data = order_data
-        st.write(product_quantities)
         
 
 # แสดงสถานะสินค้า
