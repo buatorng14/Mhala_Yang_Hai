@@ -15,7 +15,7 @@ cursor = mydb.cursor()
 cursor.execute("SELECT OrderCode, Product, TotalPrice, CustomerNote FROM customer_order")
 data = cursor.fetchall()
 
-#st.title('รายการคำสั่งซื้อทั้งหมด')
+st.title('รายการคำสั่งซื้อทั้งหมด')
 
 #for product in data:
 #   OrderCode, Product, TotalPrice, CustomerNote = product
