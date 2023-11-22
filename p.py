@@ -273,16 +273,20 @@ if st.session_state.stage == 3:
         st.button('ย้อนกลับ', key=2, on_click=set_state, args=[2], use_container_width=True)
     with col2:
         if not name_customer:
-            if st.button('SUBMIT',key='submit1', on_click=set_state, args=[3], use_container_width=True):
+            if st.button('SUBMIT', key='submit1', on_click=set_state, args=[3], use_container_width=True):
                 st.warning('โปรดใส่ชื่อผู้สั่งซื้อด้วย')
         else:
             mycursor.execute("SELECT * FROM customer_order WHERE OrderCode=%s", (name_customer,))
-            result = mycursor.fetchone()
-            if result:
-                if st.button('SUBMIT',key='submit3', on_click=set_state, args=[3], use_container_width=True):
+            mycursor.execute("SELECT * FROM history_order WHERE ordercode=%s", (name_customer,))
+            result1 = mycursor.fetchone()
+            result2 = mycursor.fetchone()
+            if result1 or result2:
+                if st.button('SUBMIT', key='submit3', on_click=set_state, args=[3], use_container_width=True):
                     st.warning('ชื่อนี้มีอยู่แล้ว กรุณาเปลี่ยนชื่อ')
             else:
-                st.button('SUBMIT',key='submit2', on_click=set_state, args=[4], use_container_width=True)
+                if st.button('SUBMIT', key='submit2', on_click=set_state, args=[4], use_container_width=True):
+                    pass  # ทำงานเพิ่มเติมที่นี่ (เช่น กระทำต่อไปหลังจากกด SUBMIT ในกรณีที่ไม่มีชื่อผู้สั่งซื้อในฐานข้อมูล)
+
             
 # สรุปใบคำสั่งซื้อ
 if st.session_state.stage == 4:
