@@ -1,5 +1,6 @@
 import streamlit as st
 import mysql.connector
+import ast
 
 # Connect to MySQL database
 mydb = mysql.connector.connect(
@@ -17,12 +18,16 @@ st.title('รายการคำสั่งซื้อทั้งหมด'
 
 for product in data:
     OrderCode, Product, TotalPrice, CustomerNote = product
+    product_dict = ast.literal_eval(Product)
     with st.form(key=f'form_{OrderCode}'):
         st.write(OrderCode)
-        st.write(Product)
+        st.write("**สินค้า:**")
+        for item_name, item_quantity in product_dict.items():
+            st.write(f"- {item_name} จำนวน {item_quantity}")
         st.write(f'**ราคารวม:** :red[{TotalPrice} ฿]')
         st.write(f'**โน้ตถึงร้านค้า:** {CustomerNote}')
         
+        # ใส่ st.form_submit_button() ภายในบล็อกของ with st.form()
         if st.form_submit_button(label='Finish', use_container_width=True):
             # Insert into history_order table
             cursor.execute("INSERT INTO history_order (ordercode) VALUES (%s)", (OrderCode,))
