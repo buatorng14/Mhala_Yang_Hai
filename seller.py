@@ -1,4 +1,5 @@
 import streamlit as st
+import ast
 import mysql.connector
 # Connect to MySQL database
 mydb = mysql.connector.connect(
@@ -16,6 +17,7 @@ st.title('รายการคำสั่งซื้อทั้งหมด'
 
 for product in data:
     OrderCode, Product, TotalPrice, CustomerNote = product
+product_dict = ast.literal_eval(Product)
     with st.form(key=f'form_{OrderCode}'):
         st.write(OrderCode)
         st.write("**สินค้า:**")
