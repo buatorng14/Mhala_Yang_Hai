@@ -1,14 +1,15 @@
 import streamlit as st
-import mysql.connector
 import ast
+import mysql.connector
 
-# Connect to MySQL database
-mydb = mysql.connector.connect(
-    host="139.5.147.31",
-    port=3306,  # Ensure it's an integer, not a string
-    user="trong",
-    password="c757GL28zN",
-    database="trong", # Make sure SSL configuration is correct
+
+#ติดต่อฐานข้อมูล MySQL
+mydb =  mysql.connector.connect(
+        host="139.5.147.31",
+        port="3306",
+        user="trong",
+        password="c757GL28zN",
+        database="trong"
 )
 cursor = mydb.cursor()
 cursor.execute("SELECT OrderCode, Product, TotalPrice, CustomerNote FROM customer_order")
