@@ -1,7 +1,5 @@
 import streamlit as st
 import mysql.connector
-import ast
-
 # Connect to MySQL database
 mydb = mysql.connector.connect(
         host="139.5.147.31",
