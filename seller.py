@@ -8,8 +8,7 @@ mydb = mysql.connector.connect(
     port=3306,  # Ensure it's an integer, not a string
     user="trong",
     password="c757GL28zN",
-    database="trong",
-    ssl_disabled=True  # Make sure SSL configuration is correct
+    database="trong", # Make sure SSL configuration is correct
 )
 cursor = mydb.cursor()
 cursor.execute("SELECT OrderCode, Product, TotalPrice, CustomerNote FROM customer_order")
