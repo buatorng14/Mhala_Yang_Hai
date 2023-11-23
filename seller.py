@@ -25,8 +25,8 @@ for product in data:
                 st.write("**สินค้า:**")
                 for item_name, item_quantity in product_dict.items():
                         st.write(f"- {item_name} จำนวน {item_quantity}")
-                        st.write(f'**ราคารวม:** :red[{TotalPrice} ฿]')
-                        st.write(f'**โน้ตถึงร้านค้า:** {CustomerNote}')
+                st.write(f'**ราคารวม:** :red[{TotalPrice} ฿]')
+                st.write(f'**โน้ตถึงร้านค้า:** {CustomerNote}')
                 if st.form_submit_button(label='Finish', use_container_width=True):
                         cursor.execute("INSERT INTO history_order (ordercode) VALUES (%s)", (OrderCode,))
                         mydb.commit()
